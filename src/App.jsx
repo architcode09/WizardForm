@@ -1,7 +1,6 @@
 // src/App.jsx
 
 import React from 'react';
-// 1. Import Outlet and Link
 import { Outlet, Link } from 'react-router-dom';
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
       </nav>
 
       <div className="flex items-center justify-center">
-        {/* 2. The Outlet component renders the current route's element */}
+        {/* The Outlet component renders the current route's element */}
         <Outlet />
       </div>
 

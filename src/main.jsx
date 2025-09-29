@@ -8,7 +8,6 @@ import App from './App.jsx';
 import './index.css';
 
 import AddFarmWizard from './components/AddFarmWizard/AddFarmWizard.jsx';
-// IMPORTANT: Update this import name
 import ApexchartDashboard from './Apexcharts/apexchart.jsx'; 
 
 const router = createBrowserRouter([
@@ -22,7 +21,6 @@ const router = createBrowserRouter([
       },
       {
         path: "apexchart",
-        // And update the element here
         element: <ApexchartDashboard />,
       },
     ],
