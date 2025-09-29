@@ -1,2 +1,1 @@
-# WizardForm
-Multi page form in react
+#wizard form
