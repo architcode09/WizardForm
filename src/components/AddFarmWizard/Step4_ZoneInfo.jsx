@@ -8,6 +8,9 @@ const Step4_ZoneInfo = ({ formData, setFormData }) => {
   const activePolyhouse = formData.polyhouses.find(p => p.id === activePolyhouseId);
   const activeZone = activePolyhouse?.zones.find(z => z.id === activeZoneId);
 
+  // THE FIX: The logic for these two functions has been fully restored.
+
+  // This function handles changes for the main zone form fields (name, type, crop info)
   const handleZoneChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -20,14 +23,24 @@ const Step4_ZoneInfo = ({ formData, setFormData }) => {
     }));
   };
 
+  // This function handles changes for the count inputs at the bottom
   const handleCountChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-        ...prev,
-        polyhouses: prev.polyhouses.map(p =>
-            p.id === activePolyhouseId ? { ...p, counts: { ...p.counts, [name]: value} } : p
-        )
-    }));
+    setFormData(prevData => {
+        const updatedPolyhouses = prevData.polyhouses.map(polyhouse => {
+            if (polyhouse.id === activePolyhouseId) {
+                return {
+                    ...polyhouse,
+                    counts: {
+                        ...polyhouse.counts,
+                        [name]: parseInt(value, 10) || 0 
+                    }
+                };
+            }
+            return polyhouse;
+        });
+        return { ...prevData, polyhouses: updatedPolyhouses };
+    });
   };
 
   return (
@@ -67,7 +80,7 @@ const Step4_ZoneInfo = ({ formData, setFormData }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Zone Name *</label>
-              <input type="text" name="name" value={activeZone?.name || ''} onChange={handleZoneChange} className="w-full border border-gray-300 rounded-lg px-3 py-2"/>
+              <input type="text" name="name" value={activeZone?.name || ''} onChange={handleZoneChange} required className="w-full border border-gray-300 rounded-lg px-3 py-2"/>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Zone Type</label>

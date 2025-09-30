@@ -7,7 +7,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import './index.css';
 
-import AddFarmWizard from './components/AddFarmWizard/AddFarmWizard.jsx';
+// Import the page components
+// Updated to import the DashboardPage.jsx file you created
+import DashboardPage from './DashboardPage.jsx'; 
 import ApexchartDashboard from './Apexcharts/apexchart.jsx'; 
 
 const router = createBrowserRouter([
@@ -17,7 +19,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true, 
-        element: <AddFarmWizard />,
+        // Set the Dashboard as the default homepage
+        element: <DashboardPage />,
       },
       {
         path: "apexchart",
