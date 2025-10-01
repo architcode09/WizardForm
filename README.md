@@ -12,33 +12,7 @@ The core of the application is a **modal-based, 4-step wizard** that handles:
 It also includes a **dashboard page for data visualization**, demonstrating **component-based architecture** and **routing with React Router**.
 
 ---
-farm-management/
-├── .gitignore
-├── index.html
-├── package.json
-├── vite.config.js
-└── src/
-    ├── components/
-    │   ├── AddFarmWizard/      // All components for the wizard feature
-    │   │   ├── AddFarmWizard.jsx
-    │   │   ├── Navigation.jsx
-    │   │   ├── Stepper.jsx
-    │   │   ├── Step1_FarmDetails.jsx
-    │   │   ├── Step2_AddReservoir.jsx
-    │   │   ├── Step3_AddPolyhouse.jsx
-    │   │   └── Step4_ZoneInfo.jsx
-    │   └── layout/             // Shared layout components
-    │       └── Sidebar.jsx
-    ├── pages/                  // Top-level page components
-    │   └── FarmManagementPage.jsx
-    ├── Apexcharts/             // All components for the charts feature
-    │   ├── apexchart.jsx
-    │   └── charts/
-    │       ├── BasicCharts.jsx
-    │       └── ... (other chart components)
-    ├── App.jsx                 // The root component with main layout
-    ├── index.css               // Global styles and Tailwind directives
-    └── main.jsx                // The application's entry point and router setup
+
 
 ## ✨ Key Features
 
@@ -110,3 +84,4 @@ npm install
 
 # Run the app
 npm start
+
